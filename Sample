@@ -1,0 +1,32 @@
+story = {
+    "start": {
+        "text": "You wake up in a dark room. A faint light shines through a crack in the door. What do you do?",
+        "options": {
+            "open the door": "You open the door and see a bright hallway.",
+            "stay in the room": "You decide to stay in the room and wait."
+        }
+    },
+    "hallway": {
+        "text": "You're in a bright hallway. There's a door to your left and a door to your right. Which way do you go?",
+        "options": {
+            "left": "You open the left door and find a treasure chest.",
+            "right": "You open the right door and find a monster."
+        }
+    },
+    # ... more nodes and edges
+}
+
+def play_game():
+    current_node = "start"
+
+    while True:
+        print(story[current_node]["text"])
+
+        user_input = input("> ")
+
+        if user_input in story[current_node]["options"]:
+            current_node = story[current_node]["options"][user_input]
+        else:
+            print("Invalid input. Please try again.")
+
+play_game()
